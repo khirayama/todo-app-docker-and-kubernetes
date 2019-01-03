@@ -1,10 +1,18 @@
 # TODO App
 P163 Swarmによる実践的なアプリケーション構築
 
-### Create dev env
-P139 3.5 コンテナ配置戦略
+### おおまかな流れ
 
-```
+- データストアとなるMaster / Slave構成のMySQL Serviceの構築
+- MySQLとデータのやり取りをするためのAPI実装
+- ウェブアプリケーションとAPI間にリバースプロキシとなるNginxを通じてアクセスできるように設定
+- APIを利用してサーバサイドレンダリングするWebアプリケーションを実装
+- フロント側とリバースプロキシ（Nginx）を置く
+
+### 環境構築
+
+P139 3.5 コンテナ配置戦略
+```sh
 $ docker-compose up -d
 $ docker container exec -it manager docker swarm init
 $ docker container exec -it worker01 docker swarm join --token YOUR_TOKEN manager:2377
